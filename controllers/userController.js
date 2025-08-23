@@ -5,7 +5,7 @@ const Response = require("../helpers/responseTrait");
 // GET USER INFO
 const getUserController = async (req, res) => {
   try {
-    const user = await userModel.findById({ _id: req.body.id });
+    const user = await userModel.findById({ _id: req.user.id });
 
     if (!user) {
       return Response.notFound(res, "User Not Found");
@@ -22,7 +22,7 @@ const getUserController = async (req, res) => {
 // UPDATE USER
 const updateUserController = async (req, res) => {
   try {
-    const user = await userModel.findById({ _id: req.body.id });
+    const user = await userModel.findById({ _id: req.user.id });
 
     if (!user) {
       return Response.notFound(res, "User Not Found");
@@ -44,7 +44,7 @@ const updateUserController = async (req, res) => {
 // UPDATE USER PASSWORD
 const updatePasswordController = async (req, res) => {
   try {
-    const user = await userModel.findById({ _id: req.body.id });
+    const user = await userModel.findById({ _id: req.user.id });
 
     if (!user) {
       return Response.notFound(res, "User Not Found");
