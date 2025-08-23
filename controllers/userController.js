@@ -34,7 +34,7 @@ const updateUserController = async (req, res) => {
     if (phone) user.phone = phone;
 
     await user.save();
-    return Response.success(res, "User Updated Successfully");
+    return Response.successMsg(res, "User Updated Successfully");
   } catch (error) {
     console.log(error);
     return Response.error(res, "Error In Update User API", error);
@@ -65,7 +65,7 @@ const updatePasswordController = async (req, res) => {
     user.password = hashedPassword;
 
     await user.save();
-    return Response.success(res, "Password Updated Successfully");
+    return Response.successMsg(res, "Password Updated Successfully");
   } catch (error) {
     console.log(error);
     return Response.error(res, "Error In Password Update API", error);
@@ -90,7 +90,7 @@ const resetPasswordController = async (req, res) => {
     user.password = hashedPassword;
 
     await user.save();
-    return Response.success(res, "Password Reset Successfully");
+    return Response.successMsg(res, "Password Reset Successfully");
   } catch (error) {
     console.log(error);
     return Response.error(res, "Error In Password Reset API", error);
@@ -101,7 +101,7 @@ const resetPasswordController = async (req, res) => {
 const deleteProfileController = async (req, res) => {
   try {
     await userModel.findByIdAndDelete(req.params.id);
-    return Response.success(res, "Your Account Has Been Deleted");
+    return Response.successMsg(res, "Your Account Has Been Deleted");
   } catch (error) {
     console.log(error);
     return Response.error(res, "Error In Delete Profile API", error);

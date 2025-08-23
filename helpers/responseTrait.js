@@ -7,6 +7,13 @@ module.exports = {
     });
   },
 
+  successMsg: (res, message = "Success", status = 200) => {
+    return res.status(status).json({
+      success: true,
+      message,
+    });
+  },
+
   created: (res, message = "Created Successfully", status = 201) => {
     return res.status(status).json({
       success: true,
