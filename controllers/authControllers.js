@@ -6,7 +6,7 @@ const Response = require("../helpers/responseTrait");
 // REGISTER
 const registerController = async (req, res) => {
   try {
-    const { userName, email, password, phone, address, answer } = req.body;
+    const { userName, email, password, phone, address, answer, usertype } = req.body;
 
     //validation
     if (!userName || !email || !password || !address || !phone || !answer) {
@@ -31,6 +31,7 @@ const registerController = async (req, res) => {
       address,
       phone,
       answer,
+      usertype,
     });
 
     return Response.created(res, "Successfully Registered");
